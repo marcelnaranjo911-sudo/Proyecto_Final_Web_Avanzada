@@ -1,0 +1,64 @@
+# StockFlow REST Client
+
+### Login Admin
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@stockflow.com",
+  "password": "admin123"
+}
+
+### Get Products
+GET http://localhost:4000/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ODliZmY5NC01YTkwLTQxMTktYTMyNi0xYjg1NmNlOWZhZGIiLCJlbWFpbCI6ImFkbWluQHN0b2NrZmxvdy5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODE5NzY0MTMsImV4cCI6MTc4MjAwNTIxM30.3AwdYkm9gxoLe_vacgIegOCfT2PH1yRAM88tyTIKqxU
+
+### Low Stock Report
+GET http://localhost:4000/api/reports/low-stock
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ODliZmY5NC01YTkwLTQxMTktYTMyNi0xYjg1NmNlOWZhZGIiLCJlbWFpbCI6ImFkbWluQHN0b2NrZmxvdy5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODE5NzY0MTMsImV4cCI6MTc4MjAwNTIxM30.3AwdYkm9gxoLe_vacgIegOCfT2PH1yRAM88tyTIKqxU
+
+### Register Admin User
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "admin2@stockflow.com",
+  "password": "admin123",
+  "role": "ADMIN"
+}
+
+### Create New Product
+POST http://localhost:4000/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ODliZmY5NC01YTkwLTQxMTktYTMyNi0xYjg1NmNlOWZhZGIiLCJlbWFpbCI6ImFkbWluQHN0b2NrZmxvdy5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODE5NzY0MTMsImV4cCI6MTc4MjAwNTIxM30.3AwdYkm9gxoLe_vacgIegOCfT2PH1yRAM88tyTIKqxU
+Content-Type: application/json
+
+{
+  "name": "Producto Nuevo",
+  "sku": "PRD-100",
+  "stock": 15,
+  "minStock": 5,
+  "price": 29.99,
+  "categoryName": "General"
+}
+
+### Update Product
+PUT http://localhost:4000/api/products/488b54c8-f851-4b15-8940-98555dc3d77c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ODliZmY5NC01YTkwLTQxMTktYTMyNi0xYjg1NmNlOWZhZGIiLCJlbWFpbCI6ImFkbWluQHN0b2NrZmxvdy5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODE5NzY0MTMsImV4cCI6MTc4MjAwNTIxM30.3AwdYkm9gxoLe_vacgIegOCfT2PH1yRAM88tyTIKqxU
+Content-Type: application/json
+
+{
+  "name": "Producto Actualizado",
+  "sku": "PRD-100",
+  "stock": 20,
+  "minStock": 5,
+  "price": 34.99,
+  "categoryName": "General"
+}
+
+### Delete Product
+DELETE http://localhost:4000/api/products/ea3e5dc7-f5ae-4d0f-ad4c-ac967219605e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0ODliZmY5NC01YTkwLTQxMTktYTMyNi0xYjg1NmNlOWZhZGIiLCJlbWFpbCI6ImFkbWluQHN0b2NrZmxvdy5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODE5NzY0MTMsImV4cCI6MTc4MjAwNTIxM30.3AwdYkm9gxoLe_vacgIegOCfT2PH1yRAM88tyTIKqxU
+
+### Get Products by Category
+GET http://localhost:4000/api/products?category=General
+
