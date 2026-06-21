@@ -84,7 +84,5 @@ npm run dev
 - Email: `admin@stockflow.com`
 - Contraseña: `admin123`
 
-## Notas finales
 
-- No se ha incluido funcionalidad de órdenes en esta versión, ya que la aplicación final está centrada en productos y stock.
-- El archivo `.gitignore` está configurado para excluir dependencias, build outputs, archivos de entorno y la base de datos local.
+
