@@ -26,7 +26,7 @@ pnpm-debug.log*
 
 # Editor settings
 .vscode/
-.vscode/stockflow-api.http
+!frontend/.vscode/stockflow-api.http
 .idea/
 
 # OS files
