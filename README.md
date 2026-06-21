@@ -84,5 +84,30 @@ npm run dev
 - Email: `admin@stockflow.com`
 - Contraseña: `admin123`
 
+## Nota para el profesor — cómo usar el REST Client incluida en el repo
 
+El archivo de peticiones REST listo para usar en stockflow-api.http. Pasos rápidos para probar todo:
+
+Requisitos: Node.js (18+), npm, Git, Visual Studio Code y la extensión REST Client instalada.
+
+## Levantar backend:
+
+cd backend
+npm install
+npx prisma migrate dev --name init
+npm run seed
+npm run dev
+
+## Levantar frontend:
+
+cd frontend
+npm install
+npm run dev
+
+## Probar API con REST Client:
+
+- Abrir VS Code y el archivo stockflow-api.http.
+- Ejecutar la petición Login Admin (Send Request) para obtener el token.
+- Copiar el token y reemplazar {{TOKEN}} en las peticiones o usar la respuesta para setear la variable.
+- Usar Create New Product, Update Product (rellenar {{PRODUCT_ID}}) y Low Stock Report para validar comportamiento.
 
