@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(uuid())
+  email    String   @unique
+  password String
+  role     String   @default("OPERATOR")
+  orders   Order[]  @relation("UserOrders")
+}
+
+model Category {
+  id       String    @id @default(uuid())
+  name     String    @unique
+  products Product[]
+}
+
+model Product {
+  id       String      @id @default(uuid())
+  name     String
+  sku      String      @unique
+  stock    Int
+  minStock Int
+  price    Float
+  category Category    @relation(fields: [categoryId], references: [id])
+  categoryId String
+  orderItems OrderItem[]
+}
+
+model Order {
+  id         String      @id @default(uuid())
+  operator   User        @relation("UserOrders", fields: [operatorId], references: [id])
+  operatorId String
+  status     String      @default("PENDING")
+  createdAt  DateTime    @default(now())
+  items      OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int
+  priceAtOrder Float
+}
+
+// Note: enums replaced by strings for SQLite compatibility
